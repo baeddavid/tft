@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import userService from "../../utils/userService";
+import userService from "../../utils/userService"
+import LoginPage from "../LoginPage/LoginPage";
+import SignupPage from "../SignupPage/SignupPage";
 
 class App extends Component {
     constructor(props) {
