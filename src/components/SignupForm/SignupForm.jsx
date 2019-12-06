@@ -79,8 +79,8 @@ class SignupForm extends Component {
                             <input
                                 type="password"
                                 placeholder="Confirm Password"
-                                value={this.state.passwordConf}
-                                name="passwordConf"
+                                value={this.state.passwordConfirm}
+                                name="passwordConfirm"
                                 onChange={this.handleChange}
                             />
                         </div>
