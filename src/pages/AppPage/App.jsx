@@ -8,18 +8,18 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: userService.getUser();
+            user: userService.getUser()
         }
     };
 
     handleLogout = () => {
         userService.logout();
         this.setState({ user: null });
-    }
+    };
 
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser() });
-    }
+    };
 
     render() {
         return(
