@@ -5,7 +5,7 @@ import userService from "../../utils/userService";
 class LoginPage extends  Component {
     state = {
         email: "",
-        pasword: ""
+        password: ""
     };
 
     handleChange = e => {
@@ -46,7 +46,7 @@ class LoginPage extends  Component {
                             <input
                                 type="password"
                                 placeholder="Password"
-                                value={this.state.pw}
+                                value={this.state.password}
                                 name="pw"
                                 onChange={this.handleChange}
                             />

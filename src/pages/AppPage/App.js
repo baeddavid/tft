@@ -31,7 +31,7 @@ class App extends Component {
                         render={({ history }) => (
                             <LoginPage
                                 history={history}
-                                handleSignupOrLogin={this.handleSignupOrLogin()}
+                                handleSignupOrLogin={this.handleSignupOrLogin}
                                 />
                         )}
                         />
