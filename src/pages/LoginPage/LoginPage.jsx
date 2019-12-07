@@ -47,7 +47,7 @@ class LoginPage extends  Component {
                                 type="password"
                                 placeholder="Password"
                                 value={this.state.password}
-                                name="pw"
+                                name="password"
                                 onChange={this.handleChange}
                             />
                         </div>
