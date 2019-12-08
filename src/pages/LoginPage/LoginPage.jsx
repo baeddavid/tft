@@ -55,6 +55,7 @@ class LoginPage extends  Component {
                                                     name="email"
                                                     id="inputEmail"
                                                     placeholder="Email"
+                                                    onChange={this.handleChange}
                                                     required
                                                 />
                                             </div>
@@ -77,7 +78,7 @@ class LoginPage extends  Component {
                                             </div>
                                             <div>
                                                 <div className="d-flex justify-content-center mt-3 login_container">
-                                                    <Button type="submit" className="btn btn-success" id={styles.button}>Log in</Button> <br/>
+                                                    <button className="btn btn-success" id={styles.button}>Log in</button> <br/>
                                                 </div>
                                             </div>
                                         </form>
