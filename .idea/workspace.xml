@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21547619-f626-4885-b2f4-c03a68231481" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/userService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +77,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575572180637</updated>
-      <workItem from="1575572182031" duration="13365000" />
+      <workItem from="1575572182031" duration="14237000" />
     </task>
     <servers />
   </component>
@@ -89,9 +88,10 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="701" y="355" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575659448438">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="467" y="267" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575761103894">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
+    <state x="467" y="267" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.777@0.23.1280.777" timestamp="1575761103894" />
     <state x="701" y="355" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1575659448438" />
     <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575573152044">
       <screen x="0" y="23" width="1920" height="1057" />
