@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import userService from "../../utils/userService"
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
+import NavBar from "../../components/NavBar/NavBar";
+import styles from "./App.module.css"
 
 class App extends Component {
     constructor(props) {
@@ -23,7 +25,7 @@ class App extends Component {
 
     render() {
         return(
-            <div>
+            <div className={styles.background}>
                 <Switch>
                     <Route
                         exact
@@ -44,6 +46,10 @@ class App extends Component {
                                 handleSignupOrLogin={this.handleSignupOrLogin}
                             />
                         )}
+                    />
+                    <NavBar
+                        user={this.state.user}
+                        handleLogout={this.handleLogout}
                     />
                 </Switch>
             </div>

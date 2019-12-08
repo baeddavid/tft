@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21547619-f626-4885-b2f4-c03a68231481" name="Default Changelist" comment="" />
+    <list default="true" id="21547619-f626-4885-b2f4-c03a68231481" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppPage/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppPage/App.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppPage/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppPage/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575572180637</updated>
-      <workItem from="1575572182031" duration="14950000" />
+      <workItem from="1575572182031" duration="25282000" />
     </task>
     <servers />
   </component>
@@ -90,13 +101,33 @@
     </state>
     <state x="467" y="267" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.777@0.23.1280.777" timestamp="1575761103894" />
     <state x="701" y="355" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1575659448438" />
-    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575573152044">
+    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575826039388">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1575573152044" />
+    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1575826039388" />
+    <state width="1379" height="252" key="GridCell.Tab.0.bottom" timestamp="1575839411266">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1379" height="252" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1575839411266" />
+    <state width="1379" height="252" key="GridCell.Tab.0.center" timestamp="1575839411265">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1379" height="252" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1575839411265" />
+    <state width="1379" height="252" key="GridCell.Tab.0.left" timestamp="1575839411264">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1379" height="252" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1575839411264" />
+    <state width="1379" height="252" key="GridCell.Tab.0.right" timestamp="1575839411266">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1379" height="252" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1575839411266" />
     <state x="467" y="204" key="SettingsEditor" timestamp="1575590175583">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="467" y="204" key="SettingsEditor/0.23.1920.1057@0.23.1920.1057" timestamp="1575590175583" />
+    <state x="746" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575839645903">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="746" y="474" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057@0.23.1920.1057" timestamp="1575839645903" />
   </component>
 </project>

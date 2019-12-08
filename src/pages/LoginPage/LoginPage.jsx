@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import {
+    Card,
+    Button,
+} from "react-bootstrap";
 import userService from "../../utils/userService";
+import NavBar from "../../components/NavBar/NavBar";
+import styles from "./LoginPage.module.css"
 
 class LoginPage extends  Component {
     state = {
@@ -27,39 +33,65 @@ class LoginPage extends  Component {
 
     render() {
         return (
-            <div>
-                <header>Log In</header>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <div>
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                value={this.state.email}
-                                name="email"
-                                onChange={this.handleChange}
-                            />
+            <div className={styles.background}>
+                <NavBar/>
+                    <div className="container h-100" id={styles.center}>
+                        <div className="d-flex justify-content-center h-100">
+                                <div className={styles.userCard}>
+                                    <div>
+                                        <div className="d-flex justify-content-center">
+                                            <h2 className={styles.title} style={{color: "white"}}>TFT</h2>
+                                        </div>
+                                        <form onSubmit={this.handleSubmit}>
+                                            <div className="input-group mb-3">
+                                                <div className="input-group-append">
+                                                    <span className="input-group-text">
+                                                        <i className="fas fa-user"></i>
+                                                    </span>
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    name="email"
+                                                    id="inputEmail"
+                                                    placeholder="Email"
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="input-group mb-2">
+                                                <div className="input-group-append">
+                                                    <span className="input-group-text">
+                                                        <i className="fas fa-key"></i>
+                                                    </span>
+                                                </div>
+                                                <input
+                                                    type="password"
+                                                    className="form-control"
+                                                    name="password"
+                                                    id="inputPass"
+                                                    value={this.state.password}
+                                                    placeholder="Password"
+                                                    onChange={this.handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <div className="d-flex justify-content-center mt-3 login_container">
+                                                    <Button type="submit" className="btn btn-success" id={styles.button}>Log in</Button> <br/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div className="mt-4">
+                                            <div className="d-flex justify-content-center links">
+                                                Don't have an account?
+                                                <Link to="/signup"><div className="ml-2" style={{color: "white"}}>Sign Up</div></Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div>
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                value={this.state.password}
-                                name="password"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <button>Log in</button>
-                            <Link to="/">Cancel</Link>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
         );
     }
 }
