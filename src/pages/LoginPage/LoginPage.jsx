@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
-import NavBar from "../../components/NavBar/NavBar";
 import styles from "./LoginPage.module.css"
 
 class LoginPage extends  Component {
@@ -30,7 +29,6 @@ class LoginPage extends  Component {
     render() {
         return (
             <div className={styles.background}>
-                <NavBar/>
                     <div className="container h-100" id={styles.center}>
                         <div className="d-flex justify-content-center h-100">
                                 <div className={styles.userCard}>
