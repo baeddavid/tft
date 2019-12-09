@@ -65,7 +65,7 @@ class SignupForm extends Component {
                                         maxLength="150"
                                         autoFocus
                                         required id="id_username"
-                                        placeholder="Name"
+                                        placeholder="Username"
                                         onChange={this.handleChange}
                                         value={this.state.name}
                                     />
