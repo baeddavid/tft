@@ -12,6 +12,8 @@ class SignupPage extends Component {
     }
 
     render() {
+        if(this.state.message === "Email already taken") alert("Email already taken");
+
         return (
             <div>
                 <SignupForm {...this.props} updateMessage={this.updateMessage} />

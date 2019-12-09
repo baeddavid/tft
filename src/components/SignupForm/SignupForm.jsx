@@ -33,8 +33,8 @@ class SignupForm extends Component {
         return !(
             this.state.name &&
             this.state.email &&
-            this.state.password != "" &&
-            this.state.passwordConfirm != "" &&
+            this.state.password !== "" &&
+            this.state.passwordConfirm !== "" &&
             this.state.password === this.state.passwordConfirm
         );
     }
