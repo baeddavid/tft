@@ -5,7 +5,7 @@ import styles from "./NavBar.module.css";
 
 const NavBar = props => {
     let nav = props.user ? (
-        <Dropdown className={styles.dropdown}>
+        <Dropdown className={styles.dropdown} alignRight>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
                 <i className="fas fa-user"></i>
             </Dropdown.Toggle>
@@ -15,7 +15,7 @@ const NavBar = props => {
         </Dropdown>
 
     ) : (
-        <Dropdown className={styles.dropdown}>
+        <Dropdown className={styles.dropdown} alignRight>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
                 <i className="fas fa-user"></i>
             </Dropdown.Toggle>
