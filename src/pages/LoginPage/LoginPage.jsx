@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {
-    Card,
-    Button,
-} from "react-bootstrap";
 import userService from "../../utils/userService";
 import NavBar from "../../components/NavBar/NavBar";
 import styles from "./LoginPage.module.css"

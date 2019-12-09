@@ -2,13 +2,14 @@
     height: 400px;
     width: 350px;
     margin-top: 20%;
-    background: #007bff;
+    background-color: rgb(250, 180, 100);
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
@@ -20,8 +21,13 @@
 
 .background {
     height: 100vh;
+    background-image: url("/tft.jpg");
 }
 
 .title {
     margin-bottom: 15%;
+}
+
+.userCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }

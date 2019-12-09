@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21547619-f626-4885-b2f4-c03a68231481" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/SignupForm/SignupForm.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignupForm/SignupForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignupForm/SignupForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignupPage/SignupPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignupPage/SignupPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575572180637</updated>
-      <workItem from="1575572182031" duration="25541000" />
+      <workItem from="1575572182031" duration="29264000" />
     </task>
     <servers />
   </component>
