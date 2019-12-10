@@ -5,6 +5,7 @@ import * as RiotApi from "../../services/riot-api";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import NavBar from "../../components/NavBar/NavBar";
+import MatchHistoryList from "../../components/MatchHistoryList/MatchHistoryList";
 import styles from "./App.module.css"
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
         this.state = {
             user: userService.getUser(),
             summoner: "",
-            history: []
+            matchHistory: [],
         }
     };
 
@@ -21,8 +22,7 @@ class App extends Component {
         let summonerNameOrEmptyString = this.state.user ? this.state.user.name : "";
         this.setState({ summoner: summonerNameOrEmptyString},
             () => { RiotApi.getSummonerTftMatchHistory(this.state.summoner)
-                    .then(res => this.setState({ history: res })) }
-        );
+                    .then(res => this.setState({ matchHistory: res })) });
     }
 
     handleLogout = () => {
@@ -30,14 +30,14 @@ class App extends Component {
         this.setState({
             user: null,
             summoner: "",
-            history: []
+            matchHistory: []
         });
     };
 
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser(), summoner: userService.getUser().name },
             () => { RiotApi.getSummonerTftMatchHistory(this.state.summoner)
-                .then(res => this.setState({ history: res })) }
+                .then(res => this.setState({ matchHistory: res })) }
         );
     };
 
@@ -65,9 +65,17 @@ class App extends Component {
                             />
                         )}
                     />
-                    <NavBar
-                        user={this.state.user}
-                        handleLogout={this.handleLogout}
+                    <Route
+                        exact
+                        path="/"
+                        render={({ history }) => (
+                            <MatchHistoryList
+                                matchHistory={this.state.matchHistory}
+                                summoner={this.state.summoner}
+                                user={this.state.user}
+                                handleLogout={this.handleLogout}
+                            />
+                        )}
                     />
                 </Switch>
             </div>

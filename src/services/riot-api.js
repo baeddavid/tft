@@ -7,3 +7,7 @@ export function getSummonerTftMatchHistory(summonerName) {
 export function getSummonerNameFromPuuid(puuid) {
     return fetch(BASE_URL + "/summoner/" + puuid).then(res => res.json());
 }
+
+export function getPuuidFromSummonerName(summonerName) {
+    return fetch(BASE_URL + "/summoners/" + summonerName).then(res => res.json());
+}
