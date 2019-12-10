@@ -67,7 +67,7 @@ class App extends Component {
                     />
                     <Route
                         exact
-                        path="/"
+                        path="/matches"
                         render={({ history }) => (
                             <MatchHistoryList
                                 matchHistory={this.state.matchHistory}
