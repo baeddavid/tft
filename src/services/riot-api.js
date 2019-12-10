@@ -11,3 +11,7 @@ export function getSummonerNameFromPuuid(puuid) {
 export function getPuuidFromSummonerName(summonerName) {
     return fetch(BASE_URL + "/summoners/" + summonerName).then(res => res.json());
 }
+
+export function getTftRankFromSummonerName(summonerName) {
+    return fetch(BASE_URL + "/rank/" + summonerName).then(res => res.json());
+}
