@@ -23,4 +23,5 @@
 .background {
     height: 100vh;
     background-image: url("/tft2.jpg");
+    background-size: cover;
 }

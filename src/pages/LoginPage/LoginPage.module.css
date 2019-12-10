@@ -22,6 +22,7 @@
 .background {
     height: 100vh;
     background-image: url("/tft.jpg");
+    background-size: cover;
 }
 
 .title {

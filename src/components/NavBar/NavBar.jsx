@@ -20,8 +20,8 @@ const NavBar = props => {
                 <i className="fas fa-user"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu>
-                <Dropdown.Item><Link to="/login">Log in</Link></Dropdown.Item>
-                <Dropdown.Item><Link to="/signup">Sign up</Link></Dropdown.Item>
+                <Dropdown.Item href="/login"><Link to="/login">Log in</Link></Dropdown.Item>
+                <Dropdown.Item href="/signup"><Link to="/signup">Sign up</Link></Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );

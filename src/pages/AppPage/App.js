@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import userService from "../../utils/userService"
+import * as RiotApi from "../../services/riot-api";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import NavBar from "../../components/NavBar/NavBar";
@@ -10,7 +11,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: userService.getUser()
+            user: userService.getUser(),
+            summoner:userService.getUser().name,
+            history: []
         }
     };
 
