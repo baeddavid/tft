@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card, ListGroup } from "react-bootstrap"
 import * as RiotApi from "../../services/riot-api";
 import styles from "./MatchHistoryItem.module.css";
+import SummonerStats from "../SummonerStats/SummonerStats";
 
 class MatchHistoryItem extends Component {
     constructor(props) {
@@ -76,14 +77,16 @@ class MatchHistoryItem extends Component {
         let littleLegends = this.getLittleLegends();
 
         return(
-            <Card className={styles.matchCard}>
-                <Card.Header>{ placementStringObject[placement] }</Card.Header>
-                <Card.Body>
-                    <div>{ littleLegends }</div>
-                    <div>Level { playerLevel }</div>
-                </Card.Body>
-                <footer className="blockquote-footer">{ this.props.summoner } { matchDuration }</footer>
-            </Card>
+            <>
+                <Card className={styles.matchCard}>
+                    <Card.Header>{ placementStringObject[placement] }</Card.Header>
+                    <Card.Body>
+                        <div>{ littleLegends }</div>
+                        <div>Level { playerLevel }</div>
+                    </Card.Body>
+                    <footer className="blockquote-footer">{ this.props.summoner } { matchDuration }</footer>
+                </Card>
+            </>
         )
     }
 }

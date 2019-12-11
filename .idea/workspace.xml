@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21547619-f626-4885-b2f4-c03a68231481" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/LandingPage/LandingPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AppPage/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppPage/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryList/MatchHistoryList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryList/MatchHistoryList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SummonerStats/SummonerStats.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SummonerStats/SummonerStats.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +25,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -82,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575572180637</updated>
       <workItem from="1575572182031" duration="33094000" />
-      <workItem from="1575920932000" duration="38450000" />
+      <workItem from="1575920932000" duration="45001000" />
     </task>
     <servers />
   </component>
@@ -102,10 +102,10 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="501" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1575920887229" />
-    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575918832796">
+    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576044735791">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1575918832796" />
+    <state x="696" y="309" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1920.1057@0.23.1920.1057" timestamp="1576044735791" />
     <state x="405" y="37" key="CommitChangelistDialog2" timestamp="1575933411807">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
