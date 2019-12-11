@@ -4,7 +4,6 @@ import userService from "../../utils/userService"
 import * as RiotApi from "../../services/riot-api";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
-import NavBar from "../../components/NavBar/NavBar";
 import MatchHistoryList from "../../components/MatchHistoryList/MatchHistoryList";
 import styles from "./App.module.css"
 

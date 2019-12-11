@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21547619-f626-4885-b2f4-c03a68231481" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryList/MatchHistoryList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryList/MatchHistoryList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SummonerStats/SummonerStats.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SummonerStats/SummonerStats.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AppPage/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AppPage/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/tokenService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/tokenService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +29,9 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -82,7 +86,8 @@
       <option name="presentableId" value="Default" />
       <updated>1575572180637</updated>
       <workItem from="1575572182031" duration="33094000" />
-      <workItem from="1575920932000" duration="45001000" />
+      <workItem from="1575920932000" duration="47654000" />
+      <workItem from="1576089885473" duration="2338000" />
     </task>
     <servers />
   </component>
