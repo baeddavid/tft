@@ -17,6 +17,7 @@ class MatchHistoryList extends Component {
                 />
                 <SummonerStats
                     summoner={this.props.user.name}
+                    matches={this.props.matchHistory}
                 />
                 { matches }
             </div>

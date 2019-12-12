@@ -97,7 +97,7 @@ class MatchHistoryItem extends Component {
     }
 
     getItemNameFromItemId(itemId) {
-        if(itemId === 404) return "Oops an error has occurred while fetching from the Riot API";
+        if(itemId === 404) return "Oopsy Woopsy Riot API Made a Fucky Wucky xD";
         return ItemData.ITEMS.find(item => item.id === itemId).name;
     }
 
