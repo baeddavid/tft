@@ -97,7 +97,13 @@ class MatchHistoryItem extends Component {
     }
 
     getItemNameFromItemId(itemId) {
+        if(itemId === 404) return "Oops an error has occurred while fetching from the Riot API";
         return ItemData.ITEMS.find(item => item.id === itemId).name;
+    }
+
+    checkIfValidItemId(itemId) {
+        if(itemId === 10005) return 404;
+        else return itemId;
     }
 
     render() {
@@ -123,11 +129,10 @@ class MatchHistoryItem extends Component {
                         </ul>
                         <ul>
                             {summonerUnits.map(unit => {
-                                return <li>Name: {unit.name} {unit.rarity} Star Level: {unit.tier} Items:<ul>
+                                return <li>Name: {unit.name} {unit.rarity} Star Level: {unit.tier} Items:
                                     {unit.items.map(item => {
-                                    return<li>{this.getItemNameFromItemId(item)}</li>
+                                    return <ul><li>{this.getItemNameFromItemId(this.checkIfValidItemId(item))}</li></ul>
                                     })}
-                                    </ul>
                                 </li>
                             })}
                         </ul>
