@@ -32,7 +32,7 @@ class SummonerStats extends Component {
         let winRate = this.getWinRate();
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
             <h2>{this.state.rank[0].tier} {this.state.rank[0].rank} { winRate }% ||
-                {this.state.rank[0].wins}-{this.state.rank[0].losses}</h2>;
+                 {this.state.rank[0].wins}-{this.state.rank[0].losses}</h2>;
         return (
             <Jumbotron>
                 <h1>{this.props.summoner}</h1>
