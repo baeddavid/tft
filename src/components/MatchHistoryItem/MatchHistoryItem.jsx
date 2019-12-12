@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Card, ListGroup } from "react-bootstrap"
 import * as RiotApi from "../../services/riot-api";
+import * as ItemData from "../../data/ItemData";
 import styles from "./MatchHistoryItem.module.css";
-import SummonerStats from "../SummonerStats/SummonerStats";
 
 class MatchHistoryItem extends Component {
     constructor(props) {
@@ -28,6 +28,32 @@ class MatchHistoryItem extends Component {
         return placement
     }
 
+    getUnitClassTiers() {
+        let classTiers = [];
+        for(let player of this.props.match.participants) {
+            if(player.puuid === this.state.puuid) {
+                for(let tier of player.traits) {
+                    if(tier.tier_current > 0) {
+                        classTiers.push({ tierName: tier.name, tier: tier.tier_current });
+                    }
+                }
+            }
+        }
+        return classTiers;
+    }
+
+    getSummonerUnits() {
+        let units = [];
+        for(let player of this.props.match.participants) {
+            if(player.puuid === this.state.puuid) {
+                for(let unit of player.units) {
+                    units.push(unit);
+                }
+            }
+        }
+        return units;
+    }
+
     placementToString(placement) {
         return {
             1: "1st Place",
@@ -41,6 +67,7 @@ class MatchHistoryItem extends Component {
         }
     }
 
+    //TODO fix time displayed as it displays entire match time not time eliminated
     getMatchDuration() {
         let unroundedTime = this.props.match.game_length / 60;
         let roundedTime = unroundedTime.toFixed(2);
@@ -69,12 +96,18 @@ class MatchHistoryItem extends Component {
         return companion;
     }
 
+    getItemNameFromItemId(itemId) {
+        return ItemData.ITEMS.find(item => item.id === itemId).name;
+    }
+
     render() {
         let placement = this.summonerPlacement();
         let placementStringObject = this.placementToString(placement);
         let matchDuration = this.getMatchDuration();
         let playerLevel = this.getLittleLegendsLevel();
         let littleLegends = this.getLittleLegends();
+        let classSynergies = this.getUnitClassTiers();
+        let summonerUnits = this.getSummonerUnits();
 
         return(
             <>
@@ -83,6 +116,21 @@ class MatchHistoryItem extends Component {
                     <Card.Body>
                         <div>{ littleLegends }</div>
                         <div>Level { playerLevel }</div>
+                        <ul>
+                            {classSynergies.map(tier => {
+                                return <li>{tier.tierName} {tier.tier}</li>;
+                            })}
+                        </ul>
+                        <ul>
+                            {summonerUnits.map(unit => {
+                                return <li>Name: {unit.name} {unit.rarity} Star Level: {unit.tier} Items:<ul>
+                                    {unit.items.map(item => {
+                                    return<li>{this.getItemNameFromItemId(item)}</li>
+                                    })}
+                                    </ul>
+                                </li>
+                            })}
+                        </ul>
                     </Card.Body>
                     <footer className="blockquote-footer">{ this.props.summoner } { matchDuration }</footer>
                 </Card>
