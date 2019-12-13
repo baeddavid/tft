@@ -14,15 +14,20 @@ class SummonerStats extends Component {
             }
         ],
         open: false,
-        puuid: ""
+        puuid: "",
+        loaded: null
     };
 
 
     componentDidMount() {
+        this.loadData();
+    }
+
+    loadData() {
         RiotApi.getTftRankFromSummonerName(this.props.summoner)
             .then(res => this.setState({ rank: res }, () =>
                 RiotApi.getPuuidFromSummonerName(this.props.summoner)
-                    .then(res => this.setState({ puuid: res }))
+                    .then(res => this.setState({ puuid: res, loaded: true }))
             ));
     }
 
@@ -34,25 +39,48 @@ class SummonerStats extends Component {
         return null;
     }
 
-    getLast20MatchesWinRate() {
-        let placement = [];
+    getAveragePlacement() {
+        let playerPlacements = [];
         for(let match of this.props.matches) {
-            for(let player of this.props.match.participants) {
+            for(let player of match.participants) {
                 if(player.puuid === this.state.puuid) {
-                    placement.push(player.placement);
+                    playerPlacements.push(player.placement);
                 }
             }
         }
-        let totalSumPlacement = placement.reduce((accumulator, currentValue) => accumulator + currentValue);
-        return (totalSumPlacement / placement.length).toFixed(2);
+        console.log(playerPlacements)
+        let totalSumPlacement = playerPlacements.reduce((accumulator, currentValue) => accumulator + currentValue);
+        return (totalSumPlacement / playerPlacements.length).toFixed(2);
+    }
+
+    getLast20WinRate() {
+        let playerPlacements = [];
+        for(let match of this.props.matches) {
+            for(let player of match.participants) {
+                if(player.puuid === this.state.puuid) {
+                    playerPlacements.push(player.placement);
+                }
+            }
+        }
+
+        let numberOfWins = 0;
+        for(let placement of playerPlacements) {
+            if (placement === 1) numberOfWins++;
+        }
+        return (numberOfWins / 20).toFixed(2);
     }
 
     render() {
-        console.log(this.props.matches)
+        if (!this.state.loaded)
+            return <div />
+
+        let averagePlacement = this.getAveragePlacement();
+        let last20GamesWinRate = this.getLast20WinRate();
         let winRate = this.getWinRate();
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
             <h2>{this.state.rank[0].tier} {this.state.rank[0].rank} { winRate }% ||
                  {this.state.rank[0].wins}-{this.state.rank[0].losses}</h2>;
+
         return (
             <Jumbotron>
                 <div className={styles.header}>
@@ -75,9 +103,8 @@ class SummonerStats extends Component {
                 </div>
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                        labore wes anderson cred nesciunt sapiente ea proident.
+                        <div>Last 20 Games Win Rate: {last20GamesWinRate}</div>
+                        <div>Average Placement over Last 20 Games: {averagePlacement}</div>
                     </div>
                 </Collapse>
             </Jumbotron>

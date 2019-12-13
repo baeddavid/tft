@@ -41,7 +41,7 @@ class App extends Component {
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser(), summoner: userService.getUser().name },
             () => { RiotApi.getSummonerTftMatchHistory(this.state.summoner)
-                .then(res => this.setState({ matchHistory: res, loaded: true })) }
+                .then(res => this.setState({ matchHistory: res })) }
         );
     };
 
