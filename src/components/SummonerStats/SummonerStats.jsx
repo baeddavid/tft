@@ -5,35 +5,12 @@ import styles from "./SummonerStats.module.scss";
 
 class SummonerStats extends Component {
     state = {
-        rank: [
-            {
-                tier: "",
-                rank: "",
-                wins: 0,
-                losses: 0,
-            }
-        ],
-        open: false,
-        puuid: "",
-        loaded: null
-    };
-
-
-    componentDidMount() {
-        this.loadData();
-    }
-
-    loadData() {
-        RiotApi.getTftRankFromSummonerName(this.props.summoner)
-            .then(res => this.setState({ rank: res }, () =>
-                RiotApi.getPuuidFromSummonerName(this.props.summoner)
-                    .then(res => this.setState({ puuid: res, loaded: true }))
-            ));
+        open: false
     }
 
     getWinRate() {
-        if(this.state.rank.length !== 0) {
-            let winRate = ((this.state.rank[0].wins / this.state.rank[0].losses) * 100).toFixed(2);
+        if(this.props.rank.length !== 0) {
+            let winRate = ((this.props.rank[0].wins / this.props.rank[0].losses) * 100).toFixed(2);
             return winRate;
         }
         return null;
@@ -43,12 +20,11 @@ class SummonerStats extends Component {
         let playerPlacements = [];
         for(let match of this.props.matches) {
             for(let player of match.participants) {
-                if(player.puuid === this.state.puuid) {
+                if(player.puuid === this.props.puuid) {
                     playerPlacements.push(player.placement);
                 }
             }
         }
-        console.log(playerPlacements)
         let totalSumPlacement = playerPlacements.reduce((accumulator, currentValue) => accumulator + currentValue);
         return (totalSumPlacement / playerPlacements.length).toFixed(2);
     }
@@ -57,7 +33,7 @@ class SummonerStats extends Component {
         let playerPlacements = [];
         for(let match of this.props.matches) {
             for(let player of match.participants) {
-                if(player.puuid === this.state.puuid) {
+                if(player.puuid === this.props.puuid) {
                     playerPlacements.push(player.placement);
                 }
             }
@@ -71,15 +47,12 @@ class SummonerStats extends Component {
     }
 
     render() {
-        if (!this.state.loaded)
-            return <div />
-
         let averagePlacement = this.getAveragePlacement();
         let last20GamesWinRate = this.getLast20WinRate();
         let winRate = this.getWinRate();
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
-            <h2>{this.state.rank[0].tier} {this.state.rank[0].rank} { winRate }% ||
-                 {this.state.rank[0].wins}-{this.state.rank[0].losses}</h2>;
+            <h2>{this.props.rank[0].tier} {this.props.rank[0].rank} { winRate }% ||
+                 {this.props.rank[0].wins}-{this.props.rank[0].losses}</h2>;
 
         return (
             <Jumbotron>

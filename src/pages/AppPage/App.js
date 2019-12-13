@@ -47,7 +47,30 @@ class App extends Component {
 
     render() {
         if (!this.state.loaded) {
-            return <div />
+            return <div className={styles.background}>
+                <Switch>
+                    <Route
+                        exact
+                        path="/login"
+                        render={({ history }) => (
+                            <LoginPage
+                                history={history}
+                                handleSignupOrLogin={this.handleSignupOrLogin}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/signup"
+                        render={({ history }) => (
+                            <SignupPage
+                                history={history}
+                                handleSignupOrLogin={this.handleSignupOrLogin}
+                            />
+                        )}
+                    />
+                </Switch>
+            </div>
         }
         return(
             <div className={styles.background}>
