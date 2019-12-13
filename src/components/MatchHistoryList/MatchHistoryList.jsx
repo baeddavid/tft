@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MatchHistoryItem from "../MatchHistoryItem/MatchHistoryItem";
 import NavBar from "../NavBar/NavBar";
 import SummonerStats from "../SummonerStats/SummonerStats";
+import LoadingPage from "../../pages/LoadingPage/LoadingPage";
 import * as RiotApi from "../../services/riot-api";
 
 class MatchHistoryList extends Component {
@@ -31,7 +32,7 @@ class MatchHistoryList extends Component {
     }
 
     render() {
-        if(!this.state.loaded) return <div></div>
+        if(!this.state.loaded) return <LoadingPage />;
 
         const matches = this.props.matchHistory.map((match, key) =>
             <MatchHistoryItem key={key} match={match} summoner={this.props.summoner}/>

@@ -78,8 +78,8 @@ class SummonerStats extends Component {
                 </div>
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
-                        <div>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
-                        <div>Average Placement over Last 20 Games: {averagePlacement}</div>
+                        <div className={styles.container}>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
+                        <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
                     </div>
                 </Collapse>
             </Jumbotron>

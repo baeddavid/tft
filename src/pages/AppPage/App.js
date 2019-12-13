@@ -4,8 +4,11 @@ import userService from "../../utils/userService"
 import * as RiotApi from "../../services/riot-api";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
+import LoadingPage from "../LoadingPage/LoadingPage";
+import LandingPage from "../LandingPage/LandingPage";
 import MatchHistoryList from "../../components/MatchHistoryList/MatchHistoryList";
 import styles from "./App.module.css"
+
 
 class App extends Component {
     constructor(props) {
@@ -69,7 +72,15 @@ class App extends Component {
                             />
                         )}
                     />
+                    <Route
+                        exact
+                        path="/"
+                        render={({ history }) => (
+                            <LandingPage/>
+                        )}
+                    />
                 </Switch>
+                <LoadingPage />
             </div>
         }
         return(
@@ -105,6 +116,13 @@ class App extends Component {
                                 user={this.state.user}
                                 handleLogout={this.handleLogout}
                             />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/"
+                        render={({ history }) => (
+                            <LandingPage/>
                         )}
                     />
                 </Switch>
