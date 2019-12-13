@@ -13,13 +13,17 @@ class SummonerStats extends Component {
                 losses: 0,
             }
         ],
-        open: false
+        open: false,
+        puuid: ""
     };
 
 
     componentDidMount() {
         RiotApi.getTftRankFromSummonerName(this.props.summoner)
-            .then(res => this.setState({ rank: res }));
+            .then(res => this.setState({ rank: res }, () =>
+                RiotApi.getPuuidFromSummonerName(this.props.summoner)
+                    .then(res => this.setState({ puuid: res }))
+            ));
     }
 
     getWinRate() {
@@ -30,7 +34,21 @@ class SummonerStats extends Component {
         return null;
     }
 
+    getLast20MatchesWinRate() {
+        let placement = [];
+        for(let match of this.props.matches) {
+            for(let player of this.props.match.participants) {
+                if(player.puuid === this.state.puuid) {
+                    placement.push(player.placement);
+                }
+            }
+        }
+        let totalSumPlacement = placement.reduce((accumulator, currentValue) => accumulator + currentValue);
+        return (totalSumPlacement / placement.length).toFixed(2);
+    }
+
     render() {
+        console.log(this.props.matches)
         let winRate = this.getWinRate();
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
             <h2>{this.state.rank[0].tier} {this.state.rank[0].rank} { winRate }% ||

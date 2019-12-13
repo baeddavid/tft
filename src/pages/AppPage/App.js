@@ -14,14 +14,19 @@ class App extends Component {
             user: userService.getUser(),
             summoner: "",
             matchHistory: [],
+            loaded: null
         }
     };
 
     componentDidMount() {
+        this.loadData();
+    }
+
+    loadData() {
         let summonerNameOrEmptyString = this.state.user ? this.state.user.name : "";
         this.setState({ summoner: summonerNameOrEmptyString},
             () => { RiotApi.getSummonerTftMatchHistory(this.state.summoner)
-                    .then(res => this.setState({ matchHistory: res })) });
+                .then(res => this.setState({ matchHistory: res, loaded: true })) });
     }
 
     handleLogout = () => {
@@ -36,11 +41,14 @@ class App extends Component {
     handleSignupOrLogin = () => {
         this.setState({ user: userService.getUser(), summoner: userService.getUser().name },
             () => { RiotApi.getSummonerTftMatchHistory(this.state.summoner)
-                .then(res => this.setState({ matchHistory: res })) }
+                .then(res => this.setState({ matchHistory: res, loaded: true })) }
         );
     };
 
     render() {
+        if (!this.state.loaded) {
+            return <div />
+        }
         return(
             <div className={styles.background}>
                 <Switch>
