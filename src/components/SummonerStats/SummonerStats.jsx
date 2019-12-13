@@ -43,7 +43,7 @@ class SummonerStats extends Component {
         for(let placement of playerPlacements) {
             if (placement === 1) numberOfWins++;
         }
-        return (numberOfWins / 20).toFixed(2);
+        return (numberOfWins / 20).toFixed(2) * 100;
     }
 
     render() {
@@ -62,21 +62,23 @@ class SummonerStats extends Component {
                 <div className={styles.header}>
                     { isRanked }
                 </div>
-                <div
-                    className={styles.button}
-                     onClick={() => this.setState({ open: !this.state.open })}
-                    aria-controls="example-collapse-text"
-                    aria-expanded={this.state.open}
-                >
-                    <span>Summoner Stats</span>
-                    <svg>
-                        <polyline className={styles.o1} points="0 0, 200 0, 200 55, 0 55, 0 0"></polyline>
-                        <polyline className={styles.o2} points="0 0, 200 0, 200 55, 0 55, 0 0"></polyline>
-                    </svg>
+                <div className={styles.container}>
+                    <div
+                        className={styles.button}
+                         onClick={() => this.setState({ open: !this.state.open })}
+                        aria-controls="example-collapse-text"
+                        aria-expanded={this.state.open}
+                    >
+                        <span>Summoner Stats</span>
+                        <svg>
+                            <polyline className={styles.o1} points="0 0, 200 0, 200 55, 0 55, 0 0"></polyline>
+                            <polyline className={styles.o2} points="0 0, 200 0, 200 55, 0 55, 0 0"></polyline>
+                        </svg>
+                    </div>
                 </div>
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
-                        <div>Last 20 Games Win Rate: {last20GamesWinRate}</div>
+                        <div>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
                         <div>Average Placement over Last 20 Games: {averagePlacement}</div>
                     </div>
                 </Collapse>
