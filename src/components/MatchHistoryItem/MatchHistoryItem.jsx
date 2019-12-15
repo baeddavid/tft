@@ -106,6 +106,10 @@ class MatchHistoryItem extends Component {
         else return itemId;
     }
 
+    removePrefixFromCharacterId(characterId) {
+        return characterId.slice(5);
+    }
+
     render() {
         let placement = this.summonerPlacement();
         let placementStringObject = this.placementToString(placement);
@@ -129,7 +133,7 @@ class MatchHistoryItem extends Component {
                         </ul>
                         <ul>
                             {summonerUnits.map(unit => {
-                                return <li>Name: {unit.name || unit.character_id} {unit.rarity} Star Level: {unit.tier} Items:
+                                return <li>Name: {unit.name || this.removePrefixFromCharacterId(unit.character_id)} {unit.rarity} Star Level: {unit.tier} Items:
                                     {unit.items.map(item => {
                                     return <ul><li>{this.getItemNameFromItemId(this.checkIfValidItemId(item))}</li></ul>
                                     })}
