@@ -37,7 +37,6 @@ class MatchHistoryList extends Component {
         const matches = this.props.matchHistory.map((match, key) =>
             <MatchHistoryItem key={key} match={match} summoner={this.props.summoner}/>
         );
-        console.log(this.props.matchHistory)
         return(
             <div>
                 <NavBar

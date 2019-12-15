@@ -34,12 +34,34 @@ class MatchHistoryItem extends Component {
             if(player.puuid === this.state.puuid) {
                 for(let tier of player.traits) {
                     if(tier.tier_current > 0) {
-                        classTiers.push({ tierName: tier.name, tier: tier.tier_current });
+                        classTiers.push({ tierName: tier.name, tier: tier.tier_current, tierTotal: tier.tier_total });
                     }
                 }
             }
         }
         return classTiers;
+    }
+
+    getTierRanking(currentTier, tierTotal) {
+        let tierFraction = currentTier / tierTotal;
+        switch(tierFraction) {
+            case 1/3:
+                return "Bronze";
+            case 1/2:
+                return "Bronze";
+            case 2/3:
+                return "Silver";
+            case 1:
+                return "Gold";
+        }
+    }
+
+    getCurrentSummoner() {
+        for(let player of this.props.match.participants) {
+            if(player.puuid === this.state.puuid) {
+                return player;
+            }
+        }
     }
 
     getSummonerUnits() {
@@ -110,7 +132,17 @@ class MatchHistoryItem extends Component {
         return characterId.slice(5);
     }
 
+    removePrefixFromTier(tierName) {
+        return tierName.slice(5);
+    }
+
+    doesTierHavePrefix(tierName) {
+        return tierName.includes("Set2_");
+    }
+
     render() {
+        console.log(this.getCurrentSummoner());
+
         let placement = this.summonerPlacement();
         let placementStringObject = this.placementToString(placement);
         let matchDuration = this.getMatchDuration();
@@ -128,15 +160,16 @@ class MatchHistoryItem extends Component {
                         <div>Level { playerLevel }</div>
                         <ul>
                             {classSynergies.map(tier => {
-                                return <li>{tier.tierName} {tier.tier}</li>;
+                                if(this.doesTierHavePrefix(tier.tierName)) return <li>{ this.removePrefixFromTier(tier.tierName) } { this.getTierRanking(tier.tier, tier.tierTotal) }</li>;
+                                return <li>{ tier.tierName } { this.getTierRanking(tier.tier, tier.tierTotal) }</li>;
                             })}
                         </ul>
                         <ul>
                             {summonerUnits.map(unit => {
-                                return <li>Name: {unit.name || this.removePrefixFromCharacterId(unit.character_id)} {unit.rarity} Star Level: {unit.tier} Items:
-                                    {unit.items.map(item => {
-                                    return <ul><li>{this.getItemNameFromItemId(this.checkIfValidItemId(item))}</li></ul>
-                                    })}
+                                return <li>Name: { unit.name || this.removePrefixFromCharacterId(unit.character_id) } { unit.rarity } Star Level: { unit.tier } Items:
+                                    { unit.items.map(item => {
+                                    return <ul><li>{ this.getItemNameFromItemId(this.checkIfValidItemId(item)) }</li></ul>
+                                    }) }
                                 </li>
                             })}
                         </ul>
