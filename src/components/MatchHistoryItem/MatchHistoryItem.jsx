@@ -129,7 +129,7 @@ class MatchHistoryItem extends Component {
                         </ul>
                         <ul>
                             {summonerUnits.map(unit => {
-                                return <li>Name: {unit.name} {unit.rarity} Star Level: {unit.tier} Items:
+                                return <li>Name: {unit.name || unit.character_id} {unit.rarity} Star Level: {unit.tier} Items:
                                     {unit.items.map(item => {
                                     return <ul><li>{this.getItemNameFromItemId(this.checkIfValidItemId(item))}</li></ul>
                                     })}
