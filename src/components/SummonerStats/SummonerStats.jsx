@@ -5,7 +5,14 @@ import styles from "./SummonerStats.module.scss";
 
 class SummonerStats extends Component {
     state = {
-        open: false
+        open: false,
+        isOnWinStreak: false,
+        numberOfWins: 0
+    }
+
+    componentDidMount() {
+        let winStreakNotifer = this.isOnHotStreak();
+        this.setState({ isOnWinStreak: winStreakNotifer.isPlayerOnStreak, numberOfWins: winStreakNotifer.winStreakNumber })
     }
 
     getWinRate() {
@@ -46,13 +53,41 @@ class SummonerStats extends Component {
         return (numberOfWins / 20).toFixed(2) * 100;
     }
 
+    isOnHotStreak() {
+        let isPlayerOnStreak = false;
+        let winStreakCoutner = 0;
+        for(let match of this.props.matches) {
+            for(let player of match.participants) {
+                if(player.puuid == this.props.puuid) {
+                    if(player.placement <= 4) {
+                        winStreakCoutner++;
+                        if(winStreakCoutner > 3) {
+                            isPlayerOnStreak = true;
+                        }
+                    } else {
+                        return { isPlayerOnStreak: isPlayerOnStreak, winStreakNumber: winStreakCoutner };
+                    }
+                }
+            }
+        }
+    }
+
     render() {
         let averagePlacement = this.getAveragePlacement();
         let last20GamesWinRate = this.getLast20WinRate();
         let winRate = this.getWinRate();
+        let winStreakNotifier = this.isOnHotStreak();
+
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
             <h2>{this.props.rank[0].tier} {this.props.rank[0].rank} { winRate }% ||
                  {this.props.rank[0].wins}-{this.props.rank[0].losses}</h2>;
+
+        let winStreakDisplay = this.state.isOnWinStreak === true ?
+            <div className={styles.container}>
+                <i className="fas fa-fire" style={{ color: "#e25822" }}></i>
+                This summoner has finished top 4 in their last {this.state.numberOfWins} games!
+            </div>
+            : null;
 
         return (
             <Jumbotron>
@@ -78,6 +113,7 @@ class SummonerStats extends Component {
                 </div>
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
+                        {winStreakDisplay}
                         <div className={styles.container}>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
                         <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
                     </div>
