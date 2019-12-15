@@ -1,8 +1,33 @@
 import React, { Component } from "react";
-import { Card, ListGroup } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import * as RiotApi from "../../services/riot-api";
 import * as ItemData from "../../data/ItemData";
 import styles from "./MatchHistoryItem.module.css";
+import alchemist from "./trait_icons/alchemist.png";
+import asssassin from "./trait_icons/assassin.png";
+import avatar from "./trait_icons/avatar.png";
+import berserker from "./trait_icons/berserker.png";
+import blademaster from "./trait_icons/blademaster.png";
+import cloud from "./trait_icons/cloud.png";
+import crystal from "./trait_icons/crystal.png";
+import desert from "./trait_icons/desert.png";
+import druid from "./trait_icons/druid.png";
+import electric from "./trait_icons/electric.png";
+import glacial from "./trait_icons/glacial.png";
+import inferno from "./trait_icons/inferno.png";
+import light from "./trait_icons/light.png";
+import mage from "./trait_icons/mage.png";
+import mountain from "./trait_icons/mountain.png";
+import mystic from "./trait_icons/mystic.png";
+import ocean from "./trait_icons/ocean.png";
+import poison from "./trait_icons/poison.png";
+import predator from "./trait_icons/predator.png";
+import ranger from "./trait_icons/ranger.png";
+import shadow from "./trait_icons/shadow.png";
+import steel from "./trait_icons/steel.png";
+import summoner from "./trait_icons/summoner.png";
+import warden from "./trait_icons/warden.png";
+import woodland from "./trait_icons/woodland.png";
 
 class MatchHistoryItem extends Component {
     constructor(props) {
@@ -46,13 +71,78 @@ class MatchHistoryItem extends Component {
         let tierFraction = currentTier / tierTotal;
         switch(tierFraction) {
             case 1/3:
-                return "Bronze";
             case 1/2:
                 return "Bronze";
             case 2/3:
                 return "Silver";
             case 1:
                 return "Gold";
+        }
+    }
+
+    getTierIcon(tierName) {
+        switch(tierName) {
+            case "Alchemist":
+                return alchemist;
+            case "Assassin":
+                return asssassin;
+            case "Avatar":
+                return avatar;
+            case "Berserker":
+                return berserker;
+            case"Blademaster":
+                return blademaster;
+            case "Cloud":
+                return cloud;
+            case "Crystal":
+                return crystal;
+            case "Desert":
+                return desert;
+            case "Druid":
+                return druid;
+            case "Electric":
+                return electric;
+            case "Glacial":
+                return glacial;
+            case "Inferno":
+                return inferno;
+            case "Light":
+                return light;
+            case "Mage":
+                return mage;
+            case "Mountain":
+                return mountain;
+            case "Mystic":
+                return mystic;
+            case "Ocean":
+                return ocean;
+            case "Poison":
+                return poison;
+            case "Predator":
+                return predator;
+            case "Ranger":
+                return ranger;
+            case "Shadow":
+                return shadow;
+            case "Steel":
+                return steel;
+            case "Summoner":
+                return summoner;
+            case "Warden":
+                return warden;
+            case "Woodland":
+                return woodland
+        }
+    }
+
+    getTierColor(tierRanking) {
+        switch(tierRanking) {
+            case "Bronze":
+                return "rgb(120, 80, 50)";
+            case "Silver":
+                return "rgb(199, 199, 199)";
+            case "Gold":
+                return "gold";
         }
     }
 
@@ -158,12 +248,23 @@ class MatchHistoryItem extends Component {
                     <Card.Body>
                         <div>{ littleLegends }</div>
                         <div>Level { playerLevel }</div>
-                        <ul>
+                        <div className={styles.tiers}>
                             {classSynergies.map(tier => {
-                                if(this.doesTierHavePrefix(tier.tierName)) return <li>{ this.removePrefixFromTier(tier.tierName) } { this.getTierRanking(tier.tier, tier.tierTotal) }</li>;
-                                return <li>{ tier.tierName } { this.getTierRanking(tier.tier, tier.tierTotal) }</li>;
+                                if(this.doesTierHavePrefix(tier.tierName))
+                                    return <div className={styles.tierContainer}>
+                                    <div className={styles.hexagon} style={{ backgroundImage: `url(${this.getTierIcon(this.removePrefixFromTier(tier.tierName))})`, backgroundColor: `${this.getTierColor(this.getTierRanking(tier.tier, tier.tierTotal))}`}}>
+                                        <div className={styles.hexTop} style={{ backgroundColor: `${this.getTierColor(this.getTierRanking(tier.tier, tier.tierTotal))}` }}></div>
+                                        <div className={styles.hexBottom} style={{ backgroundColor: `${this.getTierColor(this.getTierRanking(tier.tier, tier.tierTotal))}` }}></div>
+                                    </div>
+                                </div>;
+                                return<div className={styles.tierContainer}>
+                                        <div className={styles.hexagon} style={{ backgroundImage: `url(${this.getTierIcon(tier.tierName)})`, backgroundColor: `${this.getTierColor(this.getTierRanking(tier.tier, tier.tierTotal))}`}}>
+                                            <div className={styles.hexTop} style={{ backgroundColor: `${this.getTierColor(this.getTierRanking(tier.tier, tier.tierTotal))}` }}></div>
+                                            <div className={styles.hexBottom} style={{ backgroundColor: `${this.getTierColor(this.getTierRanking(tier.tier, tier.tierTotal))}` }}></div>
+                                        </div>
+                                    </div>
                             })}
-                        </ul>
+                        </div>
                         <ul>
                             {summonerUnits.map(unit => {
                                 return <li>Name: { unit.name || this.removePrefixFromCharacterId(unit.character_id) } { unit.rarity } Star Level: { unit.tier } Items:
