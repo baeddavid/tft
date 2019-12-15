@@ -124,7 +124,7 @@ class MatchHistoryItem extends Component {
                 return ranger;
             case "Shadow":
                 return shadow;
-            case "Steel":
+            case "Metal":
                 return steel;
             case "Summoner":
                 return summoner;

@@ -36,6 +36,23 @@ class SummonerStats extends Component {
         return (totalSumPlacement / playerPlacements.length).toFixed(2);
     }
 
+    getLast20LoseRate() {
+        let playerPlacements = [];
+        for(let match of this.props.matches) {
+            for(let player of match.participants) {
+                if(player.puuid === this.props.puuid) {
+                    playerPlacements.push(player.placement);
+                }
+            }
+        }
+
+        let numberOfLosses = 0;
+        for(let placement of playerPlacements) {
+            if (placement === 8 || placement === 7) numberOfLosses++;
+        }
+        return (numberOfLosses / 20).toFixed(2) * 100;
+    }
+
     getLast20WinRate() {
         let playerPlacements = [];
         for(let match of this.props.matches) {
@@ -76,6 +93,7 @@ class SummonerStats extends Component {
         let averagePlacement = this.getAveragePlacement();
         let last20GamesWinRate = this.getLast20WinRate();
         let winRate = this.getWinRate();
+        let lossRate = this.getLast20LoseRate();
         let winStreakNotifier = this.isOnHotStreak();
 
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
@@ -116,6 +134,7 @@ class SummonerStats extends Component {
                         {winStreakDisplay}
                         <div className={styles.container}>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
                         <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
+                        <div className={styles.container}>Last 20 Games Lose Rate: {lossRate}%</div>
                     </div>
                 </Collapse>
             </Jumbotron>
