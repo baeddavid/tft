@@ -583,7 +583,7 @@ class MatchHistoryItem extends Component {
     returnStars(unitLevel) {
         let stars = [];
         for(let i = 0; i < unitLevel; i++) {
-            stars.push(<img src={require("./champion_icons/star.png")} style={{ height: "20px", width: "20px"}}/>)
+            stars.push(<img src={require("./champion_icons/star.png")} style={{ height: "10px", width: "10px"}}/>)
         }
         return stars;
     }
@@ -621,35 +621,32 @@ class MatchHistoryItem extends Component {
                                     </div>
                             })}
                         </div>
-                        <ul>
+                        <div className={styles.championContainer}>
                             {summonerUnits.map(unit => {
-                                return <li>
-                                    <div
-                                        className={styles.champion}
-                                        onClick={() => this.setState({ open: !this.state.open })}
-                                        aria-controls="example-collapse-text"
-                                        aria-expanded={this.state.open}
-                                    >
-                                        <div className={styles.championIcon} style={{ backgroundImage: `url(${this.getChampionIcon(unit.name || this.removePrefixFromCharacterId(unit.character_id))})`}}></div>
-                                        { unit.name || this.removePrefixFromCharacterId(unit.character_id) }&nbsp;
-                                        { this.returnUnitCostFromName(unit.name || this.removePrefixFromCharacterId(unit.character_id)) }$
-                                        { this.returnStars(unit.tier) }
-                                    </div>
-                                    <Collapse in={this.state.open}>
-                                        <div id="example-collapse-text">
-                                            { unit.items.map(item => {
-                                                return <ul>
-                                                    <li>
-                                                        { this.getItemNameFromItemId(this.checkIfValidItemId(item)) }
-                                                        <div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div>
-                                                    </li>
-                                                </ul>
-                                            }) }
+                                return <div className={styles.championItem}>
+                                        <div
+                                            className={styles.champion}
+                                            onClick={() => this.setState({ open: !this.state.open })}
+                                            aria-controls="example-collapse-text"
+                                            aria-expanded={this.state.open}
+                                        >
+                                            <div className={styles.championIcon} style={{ backgroundImage: `url(${this.getChampionIcon(unit.name || this.removePrefixFromCharacterId(unit.character_id))})`}}></div>
+                                            { this.returnUnitCostFromName(unit.name || this.removePrefixFromCharacterId(unit.character_id)) }$&nbsp;
+                                            { this.returnStars(unit.tier) }
                                         </div>
-                                    </Collapse>
-                                </li>
+                                        <Collapse in={this.state.open}>
+                                            <div id="example-collapse-text">
+                                                { unit.items.map(item => {
+                                                    return <div>
+                                                        <div className={styles.itemName}>{ this.getItemNameFromItemId(this.checkIfValidItemId(item)) }</div>
+                                                            <div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div>
+                                                        </div>
+                                                }) }
+                                            </div>
+                                        </Collapse>
+                                    </div>
                             })}
-                        </ul>
+                        </div>
                     </Card.Body>
                     <footer className="blockquote-footer">{ this.props.summoner } { matchDuration }</footer>
                 </Card>

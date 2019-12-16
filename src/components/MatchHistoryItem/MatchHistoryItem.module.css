@@ -17,13 +17,26 @@
     background-size: contain;
 }
 
+.itemName {
+    font-size: 12px;
+}
+
 .star {
-    height: 50px;
+    height: 25px;
     background-image: url("./champion_icons/star.png");
 }
 
 .champion {
     display: inline-block;
+}
+
+.championContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.championItem {
+    margin: 10px;
 }
 
 .championIcon {
