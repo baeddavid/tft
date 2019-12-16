@@ -89,7 +89,7 @@
       <updated>1575572180637</updated>
       <workItem from="1575572182031" duration="33094000" />
       <workItem from="1575920932000" duration="47654000" />
-      <workItem from="1576089885473" duration="44952000" />
+      <workItem from="1576089885473" duration="46163000" />
     </task>
     <servers />
   </component>
@@ -145,16 +145,5 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="478" y="244" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057@0.23.1920.1057" timestamp="1576197111664" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx</url>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

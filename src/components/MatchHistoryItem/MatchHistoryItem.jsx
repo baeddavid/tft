@@ -547,6 +547,20 @@ class MatchHistoryItem extends Component {
         return companion;
     }
 
+    getDamageDealtAndPlayersEliminated() {
+        let damageAndEliminationObject = {
+            damageDealt: 0,
+            playersEliminated: 0
+        };
+        for(let player of this.props.match.participants) {
+            if(player.puuid === this.state.puuid) {
+                damageAndEliminationObject.damageDealt = player.total_damage_to_players;
+                damageAndEliminationObject.playersEliminated = player.players_eliminated;
+            }
+        }
+        return damageAndEliminationObject;
+    }
+
     getItemNameFromItemId(itemId) {
         if(itemId === 404) return "Oopsy Woopsy Riot API Made a Fucky Wucky xD";
         return ItemData.ITEMS.find(item => item.id === itemId).name;
@@ -596,6 +610,7 @@ class MatchHistoryItem extends Component {
         let littleLegends = this.getLittleLegends();
         let classSynergies = this.getUnitClassTiers();
         let summonerUnits = this.getSummonerUnits();
+        let damageAndEliminationStats = this.getDamageDealtAndPlayersEliminated();
 
         return(
             <>
@@ -603,7 +618,17 @@ class MatchHistoryItem extends Component {
                     <Card.Header>{ placementStringObject[placement] }</Card.Header>
                     <Card.Body>
                         <div>{ littleLegends }</div>
-                        <div>Level { playerLevel }</div>
+                        <div>
+                            Level { playerLevel }
+                            <div className={styles.stats}>
+                                <div>
+                                    Players Eliminated: { damageAndEliminationStats.playersEliminated }
+                                </div>
+                                <div>
+                                    Damage dealt to players: { damageAndEliminationStats.damageDealt }
+                                </div>
+                            </div>
+                        </div>
                         <div className={styles.tiers}>
                             {classSynergies.map(tier => {
                                 if(this.doesTierHavePrefix(tier.tierName))
