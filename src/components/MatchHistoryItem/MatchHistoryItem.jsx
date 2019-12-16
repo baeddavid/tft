@@ -138,6 +138,7 @@ import zyra from "./champion_icons/Zyra_1.jpg";
 import malzahar from "./champion_icons/Malzahar_0.jpg";
 import zed from "./champion_icons/Zed_1.jpg";
 import thresh from "./champion_icons/Thresh_1.jpg";
+import ornn from "./champion_icons/Ornn_1.jpg"
 
 class MatchHistoryItem extends Component {
     constructor(props) {
@@ -482,6 +483,8 @@ class MatchHistoryItem extends Component {
                 return malzahar;
             case "Zed":
                 return zed;
+            case "Ornn":
+                return ornn;
         }
     }
 

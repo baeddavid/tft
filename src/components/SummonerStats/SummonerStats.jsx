@@ -36,6 +36,42 @@ class SummonerStats extends Component {
         return (totalSumPlacement / playerPlacements.length).toFixed(2);
     }
 
+    getAveragePlayersEliminatedInLast20() {
+        let averagePlayersEliminated = 0;
+        for(let match of this.props.matches) {
+            for(let player of match.participants) {
+                if(player.puuid === this.props.puuid) {
+                    averagePlayersEliminated += player.players_eliminated;
+                }
+            }
+        }
+        return (averagePlayersEliminated / 20).toFixed(2);
+    }
+
+    getAverageDamageDealtInLast20() {
+        let averageDamageDealt = 0;
+        for(let match of this.props.matches) {
+            for(let player of match.participants) {
+                if(player.puuid === this.props.puuid) {
+                    averageDamageDealt += player.total_damage_to_players;
+                }
+            }
+        }
+        return (averageDamageDealt / 20).toFixed(2);
+    }
+
+    getAverageGoldLeftInLast20() {
+        let averageGoldLeft = 0;
+        for(let match of this.props.matches) {
+            for(let player of match.participants) {
+                if(player.puuid === this.props.puuid) {
+                    averageGoldLeft += player.gold_left;
+                }
+            }
+        }
+        return (averageGoldLeft / 20).toFixed(2);
+    }
+
     getLast20LoseRate() {
         let playerPlacements = [];
         for(let match of this.props.matches) {
@@ -94,6 +130,9 @@ class SummonerStats extends Component {
         let last20GamesWinRate = this.getLast20WinRate();
         let winRate = this.getWinRate();
         let lossRate = this.getLast20LoseRate();
+        let average20GoldLeft = this.getAverageGoldLeftInLast20();
+        let averagePlayersEliminated = this.getAveragePlayersEliminatedInLast20();
+        let averageDamageDealt = this.getAverageDamageDealtInLast20();
         let winStreakNotifier = this.isOnHotStreak();
 
         if(winRate > 20) {
@@ -143,8 +182,11 @@ class SummonerStats extends Component {
                         <br />
                         {winStreakDisplay}
                         <div className={styles.container}>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
-                        <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
                         <div className={styles.container}>Last 20 Games Lose Rate: {lossRate}%</div>
+                        <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
+                        <div className={styles.container}>Average Gold Left in Last 20 games: {average20GoldLeft}</div>
+                        <div className={styles.container}>Average Damage Dealt in Last 20 Games: {averageDamageDealt}</div>
+                        <div className={styles.container}>Average Players Eliminated in Last 20 Games: {averagePlayersEliminated}</div>
                     </div>
                 </Collapse>
             </Jumbotron>
