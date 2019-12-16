@@ -17,6 +17,25 @@
     background-size: contain;
 }
 
+.star {
+    height: 50px;
+    background-image: url("./champion_icons/star.png");
+}
+
+.champion {
+    display: inline-block;
+}
+
+.championIcon {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+}
+
+.champion:hover {
+    cursor: pointer;
+}
+
 .hexagon {
     position: relative;
     width: 60px;

@@ -96,7 +96,7 @@ export const CHAMPIONS = [
         ]
     },
     {
-        "champion": "KhaZix",
+        "champion": "Khazix",
         "cost": 4,
         "traits": [
             "Desert",

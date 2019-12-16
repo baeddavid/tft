@@ -118,7 +118,7 @@ class SummonerStats extends Component {
                 <div className={styles.container}>
                     <div
                         className={styles.button}
-                         onClick={() => this.setState({ open: !this.state.open })}
+                        onClick={() => this.setState({ open: !this.state.open })}
                         aria-controls="example-collapse-text"
                         aria-expanded={this.state.open}
                     >

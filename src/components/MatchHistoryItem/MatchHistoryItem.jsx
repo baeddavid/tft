@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap"
+import { Card, Collapse } from "react-bootstrap"
 import * as RiotApi from "../../services/riot-api";
 import * as ItemData from "../../data/ItemData";
+import * as ChampionData from "../../data/ChampionData";
 
 import styles from "./MatchHistoryItem.module.css";
 import alchemist from "./trait_icons/alchemist.png";
@@ -89,12 +90,62 @@ import zekesherald from "./item_icons/zekesherald.png";
 import zephyr from "./item_icons/zephyr.png";
 import itemnotfound from "./item_icons/itemnotfound.png"
 
+import nami from "./champion_icons/Nami_7.jpg";
+import aatrox from "./champion_icons/Aatrox_1.jpg";
+import amumu from "./champion_icons/Amumu_17.jpg"
+import annie from "./champion_icons/Annie_0.jpg";
+import ashe from "./champion_icons/Ashe_5.jpg";
+import azir from "./champion_icons/Azir_0.jpg";
+import brand from "./champion_icons/Brand_0.jpg";
+import drmundo from "./champion_icons/DrMundo_0.jpg";
+import ezreal from "./champion_icons/Ezreal_3.jpg";
+import janna from "./champion_icons/Janna_0.jpg";
+import jax from "./champion_icons/Jax_13.jpg";
+import khazix from "./champion_icons/Khazix_2.jpg";
+import kindred from "./champion_icons/Kindred_1.jpg";
+import kogmaw from "./champion_icons/KogMaw_1.jpg";
+import leblanc from "./champion_icons/Leblanc_5.jpg";
+import lucian from "./champion_icons/Lucian_0.jpg";
+import lux from "./champion_icons/Lux_0.jpg";
+import malphite from "./champion_icons/Malphite_0.jpg";
+import masteryi from "./champion_icons/MasterYi_1.jpg";
+import nasus from "./champion_icons/Nasus_11.jpg";
+import nautilus from "./champion_icons/Nautilus_0.jpg";
+import nocturne from "./champion_icons/Nocturne_5.jpg";
+import olaf from "./champion_icons/Olaf_2.jpg";
+import qiyana from "./champion_icons/Qiyana_0.jpg";
+import reksai from "./champion_icons/RekSai_1.jpg";
+import renekton from "./champion_icons/Renekton_0.jpg";
+import senna from "./champion_icons/Senna_0.jpg";
+import singed from "./champion_icons/Singed_0.jpg";
+import sion from "./champion_icons/Sion_4.jpg";
+import sivir from "./champion_icons/Sivir_0.jpg";
+import skarner from "./champion_icons/Skarner_0.jpg";
+import soraka from "./champion_icons/Soraka_3.jpg";
+import syndra from "./champion_icons/Syndra_2.jpg";
+import taliyah from "./champion_icons/Taliyah_0.jpg";
+import taric from "./champion_icons/Taric_0.jpg";
+import twitch from "./champion_icons/Twitch_0.jpg";
+import varus from "./champion_icons/Varus_9.jpg";
+import vayne from "./champion_icons/Vayne_6.jpg";
+import veigar from "./champion_icons/Veigar_0.jpg";
+import vladmir from "./champion_icons/Vladimir_8.jpg";
+import volibear from "./champion_icons/Volibear_0.jpg";
+import warwick from "./champion_icons/Warwick_4.jpg";
+import yasuo from "./champion_icons/Yasuo_0.jpg";
+import yorick from "./champion_icons/Yorick_3.jpg";
+import zyra from "./champion_icons/Zyra_1.jpg";
+import malzahar from "./champion_icons/Malzahar_0.jpg";
+import zed from "./champion_icons/Zed_1.jpg";
+import thresh from "./champion_icons/Thresh_1.jpg";
+
 class MatchHistoryItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
             players: [],
-            puuid: ""
+            puuid: "",
+            open: false,
         }
     }
 
@@ -333,6 +384,107 @@ class MatchHistoryItem extends Component {
         }
     }
 
+    getChampionIcon(championName) {
+        switch (championName) {
+            case "Nami":
+                return nami;
+            case "Aatrox":
+                return aatrox;
+            case "Amumu":
+                return amumu;
+            case "Annie":
+                return annie;
+            case "Ashe":
+                return ashe;
+            case "Azir":
+                return azir;
+            case "Brand":
+                return brand;
+            case "DrMundo":
+                return drmundo;
+            case "Ezreal":
+                return ezreal;
+            case "Janna":
+                return janna;
+            case "Jax":
+                return jax;
+            case "Khazix":
+                return khazix;
+            case "Kindred":
+                return kindred;
+            case "KogMaw":
+                return kogmaw;
+            case "Leblanc":
+                return leblanc;
+            case "Lucian":
+                return lucian;
+            case "Lux":
+                return lux;
+            case "Malphite":
+                return malphite;
+            case "MasterYi":
+                return masteryi;
+            case "Nasus":
+                return nasus;
+            case "Nautilus":
+                return nautilus;
+            case "Nocturne":
+                return nocturne;
+            case "Olaf":
+                return olaf;
+            case "Qiyana":
+                return qiyana;
+            case "RekSai":
+                return reksai;
+            case "Renekton":
+                return renekton;
+            case "Senna":
+                return senna;
+            case "Singed":
+                return singed;
+            case "Sion":
+                return sion;
+            case "Sivir":
+                return sivir;
+            case "Skarner":
+                return skarner;
+            case "Soraka":
+                return soraka;
+            case "Syndra":
+                return syndra;
+            case "Taliyah":
+                return taliyah;
+            case "Taric":
+                return taric;
+            case "Twitch":
+                return twitch;
+            case "Varus":
+                return varus;
+            case "Vayne":
+                return vayne;
+            case "Veigar":
+                return veigar;
+            case "Vladimir":
+                return vladmir;
+            case "Volibear":
+                return volibear;
+            case "Warwick":
+                return warwick;
+            case "Yasuo":
+                return yasuo;
+            case "Yorick":
+                return yorick;
+            case "Zyra":
+                return zyra;
+            case "Thresh":
+                return thresh;
+            case "Malzahar":
+                return malzahar;
+            case "Zed":
+                return zed;
+        }
+    }
+
     getCurrentSummoner() {
         for(let player of this.props.match.participants) {
             if(player.puuid === this.state.puuid) {
@@ -417,9 +569,26 @@ class MatchHistoryItem extends Component {
         return tierName.includes("Set2_");
     }
 
-    render() {
-        console.log(this.getCurrentSummoner());
+    returnUnitCostFromName(unitName) {
+        let championObject;
+        const championObjectArray = ChampionData.CHAMPIONS;
 
+        for(let i = 0; i < championObjectArray.length; i++) {
+            if(championObjectArray[i].champion === unitName) {
+                return championObjectArray[i].cost;
+            }
+        }
+    }
+
+    returnStars(unitLevel) {
+        let stars = [];
+        for(let i = 0; i < unitLevel; i++) {
+            stars.push(<img src={require("./champion_icons/star.png")} style={{ height: "20px", width: "20px"}}/>)
+        }
+        return stars;
+    }
+
+    render() {
         let placement = this.summonerPlacement();
         let placementStringObject = this.placementToString(placement);
         let matchDuration = this.getMatchDuration();
@@ -454,10 +623,30 @@ class MatchHistoryItem extends Component {
                         </div>
                         <ul>
                             {summonerUnits.map(unit => {
-                                return <li>Name: { unit.name || this.removePrefixFromCharacterId(unit.character_id) } { unit.rarity } Star Level: { unit.tier } Items:
-                                    { unit.items.map(item => {
-                                        return <ul><li>{ this.getItemNameFromItemId(this.checkIfValidItemId(item)) }<div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div></li></ul>
-                                    }) }
+                                return <li>
+                                    <div
+                                        className={styles.champion}
+                                        onClick={() => this.setState({ open: !this.state.open })}
+                                        aria-controls="example-collapse-text"
+                                        aria-expanded={this.state.open}
+                                    >
+                                        <div className={styles.championIcon} style={{ backgroundImage: `url(${this.getChampionIcon(unit.name || this.removePrefixFromCharacterId(unit.character_id))})`}}></div>
+                                        { unit.name || this.removePrefixFromCharacterId(unit.character_id) }&nbsp;
+                                        { this.returnUnitCostFromName(unit.name || this.removePrefixFromCharacterId(unit.character_id)) }$
+                                        { this.returnStars(unit.tier) }
+                                    </div>
+                                    <Collapse in={this.state.open}>
+                                        <div id="example-collapse-text">
+                                            { unit.items.map(item => {
+                                                return <ul>
+                                                    <li>
+                                                        { this.getItemNameFromItemId(this.checkIfValidItemId(item)) }
+                                                        <div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div>
+                                                    </li>
+                                                </ul>
+                                            }) }
+                                        </div>
+                                    </Collapse>
                                 </li>
                             })}
                         </ul>
