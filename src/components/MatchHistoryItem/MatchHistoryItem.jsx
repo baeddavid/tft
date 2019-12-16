@@ -520,7 +520,14 @@ class MatchHistoryItem extends Component {
 
     //TODO fix time displayed as it displays entire match time not time eliminated
     getMatchDuration() {
-        let unroundedTime = this.props.match.game_length / 60;
+        let timeEliminated;
+        for(let player of this.props.match.participants) {
+            if(player.puuid === this.state.puuid) {
+                timeEliminated = player.time_eliminated;
+            }
+        }
+
+        let unroundedTime = timeEliminated / 60;
         let roundedTime = unroundedTime.toFixed(2);
         roundedTime = roundedTime.toString();
         roundedTime = roundedTime.replace(".", ":");
@@ -617,10 +624,12 @@ class MatchHistoryItem extends Component {
                 <Card className={styles.matchCard}>
                     <Card.Header>{ placementStringObject[placement] }</Card.Header>
                     <Card.Body>
-                        <div>{ littleLegends }</div>
                         <div>
-                            Level { playerLevel }
+                            { littleLegends }
                             <div className={styles.stats}>
+                                <div>
+                                    Time Eliminated: { matchDuration }
+                                </div>
                                 <div>
                                     Players Eliminated: { damageAndEliminationStats.playersEliminated }
                                 </div>
@@ -628,6 +637,9 @@ class MatchHistoryItem extends Component {
                                     Damage dealt to players: { damageAndEliminationStats.damageDealt }
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            Level { playerLevel }
                         </div>
                         <div className={styles.tiers}>
                             {classSynergies.map(tier => {
@@ -673,7 +685,6 @@ class MatchHistoryItem extends Component {
                             })}
                         </div>
                     </Card.Body>
-                    <footer className="blockquote-footer">{ this.props.summoner } { matchDuration }</footer>
                 </Card>
             </>
         )
