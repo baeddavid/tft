@@ -96,9 +96,18 @@ class SummonerStats extends Component {
         let lossRate = this.getLast20LoseRate();
         let winStreakNotifier = this.isOnHotStreak();
 
+        if(winRate > 20) {
+            winRate = <span style={{ color: "green" }}>{ winRate }</span>;
+        } else if(winRate < 12.5) {
+            winRate = <span style={{ color: "red" }}>{ winRate }</span>;
+        }
+
         let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
-            <h2>{this.props.rank[0].tier} {this.props.rank[0].rank} { winRate }% ||
-                 {this.props.rank[0].wins}-{this.props.rank[0].losses}</h2>;
+            <div><h2>{this.props.rank[0].tier} {this.props.rank[0].rank}</h2>
+                <h3>
+                    { winRate }% || <span style={{ color: "green" }}>{this.props.rank[0].wins}</span> - <span style={{ color: "red" }}>{this.props.rank[0].losses}</span>
+                </h3>
+            </div>;
 
         let winStreakDisplay = this.state.isOnWinStreak === true ?
             <div className={styles.container}>
@@ -131,6 +140,7 @@ class SummonerStats extends Component {
                 </div>
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
+                        <br />
                         {winStreakDisplay}
                         <div className={styles.container}>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
                         <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
