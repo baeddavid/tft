@@ -544,6 +544,16 @@ class MatchHistoryItem extends Component {
         return level;
     }
 
+    getGoldLeft(){
+        let goldLeft = 0;
+        for(let player of this.props.match.participants) {
+            if(player.puuid === this.state.puuid) {
+                goldLeft = player.gold_left;
+            }
+        }
+        return goldLeft;
+    }
+
     getLittleLegends() {
         let companion;
         for(let player of this.props.match.participants) {
@@ -617,6 +627,7 @@ class MatchHistoryItem extends Component {
         let littleLegends = this.getLittleLegends();
         let classSynergies = this.getUnitClassTiers();
         let summonerUnits = this.getSummonerUnits();
+        let goldLeft = this.getGoldLeft();
         let damageAndEliminationStats = this.getDamageDealtAndPlayersEliminated();
 
         return(
@@ -629,6 +640,9 @@ class MatchHistoryItem extends Component {
                             <div className={styles.stats}>
                                 <div>
                                     Time Eliminated: { matchDuration }
+                                </div>
+                                <div>
+                                    Gold Left when Eliminated: { goldLeft }
                                 </div>
                                 <div>
                                     Players Eliminated: { damageAndEliminationStats.playersEliminated }

@@ -7,7 +7,7 @@ class SummonerStats extends Component {
     state = {
         open: false,
         isOnWinStreak: false,
-        numberOfWins: 0
+              numberOfWins: 0
     }
 
     componentDidMount() {
