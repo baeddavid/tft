@@ -11,6 +11,12 @@
     margin-right: 25px;
 }
 
+.itemIcon {
+    height: 50px;
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
 .hexagon {
     position: relative;
     width: 60px;

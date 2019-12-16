@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card } from "react-bootstrap"
 import * as RiotApi from "../../services/riot-api";
 import * as ItemData from "../../data/ItemData";
+
 import styles from "./MatchHistoryItem.module.css";
 import alchemist from "./trait_icons/alchemist.png";
 import asssassin from "./trait_icons/assassin.png";
@@ -28,6 +29,65 @@ import steel from "./trait_icons/steel.png";
 import summoner from "./trait_icons/summoner.png";
 import warden from "./trait_icons/warden.png";
 import woodland from "./trait_icons/woodland.png";
+
+import bfsword from "./item_icons/bfsword.png";
+import blackcleaver from "./item_icons/blackcleaver.png";
+import bladeoftheruinedking from "./item_icons/bladeoftheruinedking.png";
+import bloodthirster from "./item_icons/bloodthirster.png";
+import chainvest from "./item_icons/chainvest.png";
+import cloudhex from "./item_icons/cloudhex.png";
+import deathblade from "./item_icons/deathblade.png";
+import dragonsclaw from "./item_icons/dragonsclasw.png";
+import forceofnature from "./item_icons/forceofnature.png";
+import frozenheart from "./item_icons/frozenheart.png";
+import frozenmallet from "./item_icons/frozenmallet.png";
+import giantsbelt from "./item_icons/giantsbelt.png";
+import giantslayer from "./item_icons/giantslayer.png";
+import guardianangel from "./item_icons/guardianangel.png";
+import guinsoosrageblade from "./item_icons/guinsoosrageblade.png";
+import gunblade from "./item_icons/gunblade.png";
+import handofjustice from "./item_icons/handofjustice.png";
+import hush from "./item_icons/hush.png";
+import icebornegauntlet from "./item_icons/icebornegauntlet.png";
+import infernocinder from "./item_icons/infernocinder.png";
+import infernohex from "./item_icons/infernohex.png";
+import infinityedge from "./item_icons/infinityedge.png";
+import ionicspark from "./item_icons/ionicspark.png";
+import jeweledgauntlet from "./item_icons/jeweledgauntlet.png";
+import locket from "./item_icons/locket.png";
+import ludensecho from "./item_icons/ludensecho.png";
+import magescap from "./item_icons/magescap.png";
+import morellonomicon from "./item_icons/morellonomicon.png";
+import mountainhex from "./item_icons/mountainhex.png";
+import needlesslylargerod from "./item_icons/needlesslylargerod.png";
+import negatroncloak from "./item_icons/negatroncloak.png";
+import oceanhex from "./item_icons/oceanhex.png";
+import phantomdancer from "./item_icons/phantomdancer.png";
+import qss from "./item_icons/qss.png";
+import rabadonsdeathcap from "./item_icons/rabadonsdeathcap.png";
+import rapidfirecannon from "./item_icons/rapidfirecannon.png";
+import recurvebow from "./item_icons/recurvebow.png";
+import redbuff from "./item_icons/redbuff.png";
+import redemption from "./item_icons/redemption.png";
+import repeatingcrossbow from "./item_icons/repeatingcrossbow.png";
+import runaanshurricane from "./item_icons/runaanshurricane.png";
+import sattikkshiv from "./item_icons/satikkshiv.png";
+import seraphsembrace from "./item_icons/seraphsembrace.png";
+import sparringgloves from "./item_icons/sparringgloves.png";
+import spatula from "./item_icons/spatula.png";
+import spearofshojin from "./item_icons/spearofshojin.png";
+import swordbreaker from "./item_icons/swordbreaker.png";
+import talismanoflight from "./item_icons/talismanoflight.png";
+import tearofthegoddess from "./item_icons/tearofthegoddess.png";
+import thiefsglove from "./item_icons/thiefsglove.png";
+import thornmail from "./item_icons/thornmail.png";
+import titanichydra from "./item_icons/titanichydra.png";
+import trapclaw from "./item_icons/trapclaw.png";
+import wardensmil from "./item_icons/wardensmail.png";
+import youmuusghostblade from "./item_icons/youmuusghostblade.png";
+import zekesherald from "./item_icons/zekesherald.png";
+import zephyr from "./item_icons/zephyr.png";
+import itemnotfound from "./item_icons/itemnotfound.png"
 
 class MatchHistoryItem extends Component {
     constructor(props) {
@@ -143,6 +203,133 @@ class MatchHistoryItem extends Component {
                 return "rgb(199, 199, 199)";
             case "Gold":
                 return "gold";
+        }
+    }
+
+    getItemIcon(itemName) {
+        switch (itemName) {
+            case "Blade of the Ruined King":
+                return bladeoftheruinedking;
+            case "Berserker's Axe":
+                return blackcleaver;
+            case "Frozen Mallet":
+                return frozenmallet;
+            case "Mages Cap":
+                return magescap;
+            case "Talisman of Light":
+                return talismanoflight;
+            case "Inferno's Cinder":
+                return infernocinder;
+            case "Warden's Mail":
+                return wardensmil;
+            case "Youmuu's Ghostblade":
+                return youmuusghostblade;
+            case "B.F. Sword":
+                return bfsword;
+            case "Bloodthirster":
+                return bloodthirster;
+            case "Chain Vest":
+                return chainvest;
+            case "Deathblade":
+                return deathblade;
+            case "Dragon's Claw":
+                return dragonsclaw;
+            case "Force of Nature":
+                return forceofnature;
+            case "Repeating Crossbow":
+                return repeatingcrossbow;
+            case "Giant's Belt":
+                return giantsbelt;
+            case "Guardian Angel":
+                return guardianangel;
+            case "Guinsoo's Rageblade":
+                return guinsoosrageblade;
+            case "Inferno Hex":
+                return infernohex;
+            case "Mountain Hex":
+                return mountainhex;
+            case "Ocean Hex":
+                return oceanhex;
+            case "Cloud Hex":
+                return cloudhex;
+            case "Hextech Gunblade":
+                return gunblade;
+            case "Hush":
+                return hush;
+            case "Iceborne Gauntlet":
+                return icebornegauntlet;
+            case "Infinity Edge":
+                return infinityedge;
+            case "Ionic Spark":
+                return ionicspark;
+            case "Jeweled Guantlet":
+                return jeweledgauntlet;
+            case "Locked of the Iron Solari":
+                return locket;
+            case "Luden's Echo":
+                return ludensecho;
+            case "Giant Slayer":
+                return giantslayer;
+            case "Morellonomicon":
+                return morellonomicon;
+            case "Needlessly Large Rod":
+                return needlesslylargerod;
+            case "Negatron Cloak":
+                return negatroncloak;
+            case "Phantom Dancer":
+                return phantomdancer;
+            case "Trap Claw":
+                return trapclaw;
+            case "Quicksilver":
+                return qss;
+            case "Rabadon's Deathcap":
+                return rabadonsdeathcap;
+            case "Rapid Firecannon":
+                return rapidfirecannon;
+            case "Recurve Bow":
+                return recurvebow;
+            case "Red Buff":
+                return redbuff;
+            case "Redemption":
+                return redemption;
+            case "Runaan's Hurricane":
+                return runaanshurricane;
+            case "Seraph's Embrace":
+                return seraphsembrace;
+            case "Sparring Gloves":
+                return sparringgloves;
+            case "Spatula":
+                return spatula;
+            case "Spear of Shojin":
+                return spearofshojin;
+            case "Statikk Shiv":
+                return sattikkshiv;
+            case "Repeating Crossbow":
+                return repeatingcrossbow;
+            case "Sword Breaker":
+                return swordbreaker;
+            case "Tear of the Goddess":
+                return tearofthegoddess;
+            case "Thief's Gloves":
+                return thiefsglove;
+            case "Thornmail":
+                return thornmail;
+            case "Titanic Hydra":
+                return titanichydra;
+            case "Hand of Justice":
+                return handofjustice;
+            case "Zeke's Herald":
+                return zekesherald;
+            case "Zephyr":
+                return zephyr;
+            case "Mage's Cap":
+                return magescap;
+            case "Frozen Heart":
+                return frozenheart;
+            case "Inferno Cinder":
+                return infernocinder;
+            default:
+                return itemnotfound;
         }
     }
 
@@ -269,7 +456,7 @@ class MatchHistoryItem extends Component {
                             {summonerUnits.map(unit => {
                                 return <li>Name: { unit.name || this.removePrefixFromCharacterId(unit.character_id) } { unit.rarity } Star Level: { unit.tier } Items:
                                     { unit.items.map(item => {
-                                    return <ul><li>{ this.getItemNameFromItemId(this.checkIfValidItemId(item)) }</li></ul>
+                                        return <ul><li>{ this.getItemNameFromItemId(this.checkIfValidItemId(item)) }<div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div></li></ul>
                                     }) }
                                 </li>
                             })}
