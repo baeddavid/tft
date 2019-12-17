@@ -30,6 +30,7 @@ import steel from "./trait_icons/steel.png";
 import summoner from "./trait_icons/summoner.png";
 import warden from "./trait_icons/warden.png";
 import woodland from "./trait_icons/woodland.png";
+import soulbound from "./trait_icons/soulbound.png";
 
 import bfsword from "./item_icons/bfsword.png";
 import blackcleaver from "./item_icons/blackcleaver.png";
@@ -249,6 +250,8 @@ class MatchHistoryItem extends Component {
                 return warden;
             case "Woodland":
                 return woodland
+            case "Soulbound":
+                return soulbound;
         }
     }
 
@@ -645,6 +648,17 @@ class MatchHistoryItem extends Component {
         }
     }
 
+    returnTraitsFromName(unitName) {
+        let championObject;
+        const championObjectArray = ChampionData.CHAMPIONS;
+
+        for(let i = 0; i < championObjectArray.length; i++) {
+            if(championObjectArray[i].champion === unitName) {
+                return championObjectArray[i].traits;
+            }
+        }
+    }
+
     returnStars(unitLevel) {
         let stars = [];
         for(let i = 0; i < unitLevel; i++) {
@@ -663,6 +677,7 @@ class MatchHistoryItem extends Component {
         let summonerUnits = this.getSummonerUnits();
         let goldLeft = this.getGoldLeft();
         let damageAndEliminationStats = this.getDamageDealtAndPlayersEliminated();
+        let i = 1;
 
         return(
             <>
@@ -709,7 +724,8 @@ class MatchHistoryItem extends Component {
                         <div className={styles.championContainer}>
                             {summonerUnits.map(unit => {
                                 return <Card style={{ width: '18rem' }} className={styles.championCard}>
-                                    <Card.Header>
+                                    <Card.Header className={styles.traitsContainer}>
+                                        { this.returnTraitsFromName(unit.name || this.removePrefixFromCharacterId(unit.character_id)).map(trait =>  <div className={styles.traits} style={{ backgroundImage: `url(${this.getTierIcon(trait)})`}}></div>) }
                                     </Card.Header>
                                     <Card.Body className={styles.championCardBody}>
                                         <div className={styles.championItem}>

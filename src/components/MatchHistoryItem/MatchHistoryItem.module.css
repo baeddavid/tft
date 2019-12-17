@@ -11,6 +11,19 @@
     flex-direction: row;
 }
 
+.traits {
+    width: 60px;
+    height: 34.64px;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+.traitsContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .tierContainer {
     margin-right: 25px;
 }

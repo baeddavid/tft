@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MatchHistoryItem/MatchHistoryItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SummonerStats/SummonerStats.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SummonerStats/SummonerStats.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/ChampionData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ChampionData.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +90,7 @@
       <updated>1575572180637</updated>
       <workItem from="1575572182031" duration="33094000" />
       <workItem from="1575920932000" duration="47654000" />
-      <workItem from="1576089885473" duration="56559000" />
+      <workItem from="1576089885473" duration="58032000" />
     </task>
     <servers />
   </component>

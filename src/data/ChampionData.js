@@ -120,7 +120,7 @@ export const CHAMPIONS = [
         ]
     },
     {
-        "champion": "LeBlanc",
+        "champion": "Leblanc",
         "cost": 2,
         "traits": [
             "Woodland",
@@ -131,16 +131,6 @@ export const CHAMPIONS = [
         "champion": "Lux",
         "cost": 7,
         "traits": [
-            "Crystal",
-            "Electric",
-            "Glacial",
-            "Inferno",
-            "Light",
-            "Steel",
-            "Ocean",
-            "Shadow",
-            "Cloud",
-            "Woodland",
             "Avatar"
         ]
     },
@@ -443,5 +433,5 @@ export const CHAMPIONS = [
             "Inferno",
             "Warden"
         ]
-    }
+    },
 ];
