@@ -182,12 +182,12 @@ class SummonerStats extends Component {
                     <div id="example-collapse-text">
                         <br />
                         {winStreakDisplay}
-                        <div className={styles.container}>Last 20 Games Win Rate: {last20GamesWinRate}%</div>
-                        <div className={styles.container}>Last 20 Games Lose Rate: {lossRate}%</div>
-                        <div className={styles.container}>Average Placement over Last 20 Games: {averagePlacement}</div>
-                        <div className={styles.container}>Average Gold Left in Last 20 games: {average20GoldLeft}</div>
-                        <div className={styles.container}>Average Damage Dealt in Last 20 Games: {averageDamageDealt}</div>
-                        <div className={styles.container}>Average Players Eliminated in Last 20 Games: {averagePlayersEliminated}</div>
+                        <div className={styles.containers}><i className="fas fa-trophy"></i>&nbsp;Last 20 Games Win Rate: {last20GamesWinRate}%</div>
+                        <div className={styles.containers}><i className="fas fa-frog"></i>&nbsp;Last 20 Games Lose Rate: {lossRate}%</div>
+                        <div className={styles.containers}><i className="fas fa-medal"></i>&nbsp;Average Placement over Last 20 Games: {averagePlacement}</div>
+                        <div className={styles.containers}><i className="fas fa-coins" style={{ color: "gold" }}></i>&nbsp;Average Gold Left in Last 20 games: {average20GoldLeft}</div>
+                        <div className={styles.containers}><i className="fas fa-bomb" style={{ color: "red" }}></i>&nbsp;Average Damage Dealt in Last 20 Games: {averageDamageDealt}</div>
+                        <div className={styles.containers}><i className="fas fa-skull"></i>&nbsp;Average Players Eliminated in Last 20 Games: {averagePlayersEliminated}</div>
                     </div>
                 </Collapse>
             </Jumbotron>
