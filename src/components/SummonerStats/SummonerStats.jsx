@@ -129,6 +129,7 @@ class SummonerStats extends Component {
         let averagePlacement = this.getAveragePlacement();
         let last20GamesWinRate = this.getLast20WinRate();
         let winRate = this.getWinRate();
+        let displayWinRate = this.getWinRate();
         let lossRate = this.getLast20LoseRate();
         let average20GoldLeft = this.getAverageGoldLeftInLast20();
         let averagePlayersEliminated = this.getAveragePlayersEliminatedInLast20();
@@ -141,7 +142,7 @@ class SummonerStats extends Component {
             winRate = <span style={{ color: "red" }}>{ winRate }</span>;
         }
 
-        let isRanked = winRate === null ? <h2>User is not ranked in TFT</h2> :
+        let isRanked = displayWinRate === null ? <h2>User is not ranked in TFT</h2> :
             <div><h2>{this.props.rank[0].tier} {this.props.rank[0].rank}</h2>
                 <h3>
                     { winRate }% || <span style={{ color: "green" }}>{this.props.rank[0].wins}</span> - <span style={{ color: "red" }}>{this.props.rank[0].losses}</span>

@@ -139,6 +139,11 @@ import malzahar from "./champion_icons/Malzahar_0.jpg";
 import zed from "./champion_icons/Zed_1.jpg";
 import thresh from "./champion_icons/Thresh_1.jpg";
 import ornn from "./champion_icons/Ornn_1.jpg"
+import braum from "./champion_icons/Braum_0.jpg";
+import diana from "./champion_icons/Diana_3.jpg";
+import neeko from "./champion_icons/Neeko_0.jpg";
+import maokai from "./champion_icons/Maokai_0.jpg";
+import ivern from "./champion_icons/Ivern_0.jpg";
 
 class MatchHistoryItem extends Component {
     constructor(props) {
@@ -485,6 +490,32 @@ class MatchHistoryItem extends Component {
                 return zed;
             case "Ornn":
                 return ornn;
+            case "Braum":
+                return braum;
+            case "Diana":
+                return diana;
+            case "Neeko":
+                return neeko;
+            case "Maokai":
+                return maokai;
+            case "Ivern":
+                return ivern;
+        }
+    }
+
+    getBorderColorFromUnitCost(unitCost) {
+        switch (unitCost) {
+            case 1:
+                return "grey";
+            case 2:
+                return "rgb(60, 220, 120)";
+            case 3:
+                return "rgb(50, 180, 190)";
+            case 4:
+                return "rgb(175, 30, 160)";
+            case 5:
+            case 7:
+                return "rgb(255, 150, 40)";
         }
     }
 
@@ -617,7 +648,7 @@ class MatchHistoryItem extends Component {
     returnStars(unitLevel) {
         let stars = [];
         for(let i = 0; i < unitLevel; i++) {
-            stars.push(<img src={require("./champion_icons/star.png")} style={{ height: "10px", width: "10px"}}/>)
+            stars.push(<img src={require("./champion_icons/star.png")} style={{ height: "25px", width: "25px"}}/>)
         }
         return stars;
     }
@@ -642,16 +673,16 @@ class MatchHistoryItem extends Component {
                             { littleLegends }
                             <div className={styles.stats}>
                                 <div>
-                                    Time Eliminated: { matchDuration }
+                                    <i className="fas fa-clock"></i> Time Eliminated: { matchDuration }
                                 </div>
                                 <div>
-                                    Gold Left when Eliminated: { goldLeft }
+                                    <i className="fas fa-coins" style={{ color: "gold" }}></i> Gold Left when Eliminated: { goldLeft }
                                 </div>
                                 <div>
-                                    Players Eliminated: { damageAndEliminationStats.playersEliminated }
+                                    <i className="fas fa-skull"></i> Players Eliminated: { damageAndEliminationStats.playersEliminated }
                                 </div>
                                 <div>
-                                    Damage dealt to players: { damageAndEliminationStats.damageDealt }
+                                    <i className="fas fa-bomb" style={{ color: "red" }}></i> Damage dealt to players: { damageAndEliminationStats.damageDealt }
                                 </div>
                             </div>
                         </div>
@@ -677,28 +708,32 @@ class MatchHistoryItem extends Component {
                         </div>
                         <div className={styles.championContainer}>
                             {summonerUnits.map(unit => {
-                                return <div className={styles.championItem}>
-                                        <div
-                                            className={styles.champion}
-                                            onClick={() => this.setState({ open: !this.state.open })}
-                                            aria-controls="example-collapse-text"
-                                            aria-expanded={this.state.open}
-                                        >
-                                            <div className={styles.championIcon} style={{ backgroundImage: `url(${this.getChampionIcon(unit.name || this.removePrefixFromCharacterId(unit.character_id))})`}}></div>
-                                            { this.returnUnitCostFromName(unit.name || this.removePrefixFromCharacterId(unit.character_id)) }$&nbsp;
-                                            { this.returnStars(unit.tier) }
-                                        </div>
-                                        <Collapse in={this.state.open}>
-                                            <div id="example-collapse-text">
-                                                { unit.items.map(item => {
-                                                    return <div>
-                                                        <div className={styles.itemName}>{ this.getItemNameFromItemId(this.checkIfValidItemId(item)) }</div>
-                                                            <div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div>
-                                                        </div>
-                                                }) }
+                                return <Card style={{ width: '18rem' }} className={styles.championCard}>
+                                    <Card.Header>
+                                    </Card.Header>
+                                    <Card.Body className={styles.championCardBody}>
+                                        <div className={styles.championItem}>
+                                                <div
+                                                    onClick={() => this.setState({ open: !this.state.open })}
+                                                    aria-controls="example-collapse-text"
+                                                    aria-expanded={this.state.open}
+                                                >
+                                                    <div className={styles.championIconContainer}>
+                                                        <div className={styles.championIcon}
+                                                             style={{ backgroundImage: `url(${this.getChampionIcon(unit.name || this.removePrefixFromCharacterId(unit.character_id))})`,
+                                                                 borderColor: `${this.getBorderColorFromUnitCost(this.returnUnitCostFromName(unit.name || this.removePrefixFromCharacterId(unit.character_id)))}`
+                                                             }}></div>
+                                                    </div>
+                                                    <div className={styles.stars}>{ this.returnStars(unit.tier) }</div>
+                                                </div>
+                                                <div className={styles.itemContainer}>
+                                                        { unit.items.map(item => {
+                                                            return <div className={styles.itemIcon} style={{ backgroundImage: `url(${this.getItemIcon(this.getItemNameFromItemId(this.checkIfValidItemId(item)))})`}}></div>
+                                                        }) }
+                                                </div>
                                             </div>
-                                        </Collapse>
-                                    </div>
+                                    </Card.Body>
+                                </Card>
                             })}
                         </div>
                     </Card.Body>
